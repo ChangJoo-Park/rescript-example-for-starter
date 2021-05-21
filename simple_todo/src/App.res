@@ -2,7 +2,7 @@
 
 %%raw(`import './App.css';`)
 
-type todo = {id: int, body: string, complete: bool}
+type todo = {id: int, body: string, mutable complete: bool}
 
 @react.component
 let make = () => {
@@ -10,7 +10,7 @@ let make = () => {
 
   let (todos, setTodos) = React.useState(_ => [
     {id: Js.Math.random_int(0, 999), body: "Todo 1", complete: false},
-    {id: Js.Math.random_int(0, 999), body: "Todo 2", complete: false},
+    {id: Js.Math.random_int(0, 999), body: "Todo 2", complete: true},
     {id: Js.Math.random_int(0, 999), body: "Todo 3", complete: false},
   ])
 
@@ -30,20 +30,30 @@ let make = () => {
     setNewTodoInput(_ => "")
   }
 
+  let onToggleComplete = (evt, id) => {
+    ReactEvent.Form.preventDefault(evt)
+    let index = Js.Array.findIndex(elm => elm.id === id, todos)
+    setTodos(_ => [])
+  }
+
   let onRemove = (_, id) => setTodos(_prev => todos->Js.Array2.filter(elm => elm.id !== id))
 
   <div>
     <div> <h1> {React.string("Simple Todo")} </h1> </div>
     <div>
-      <form onSubmit={onSubmit}>
+      <form onSubmit>
         <input value={newTodoInput} onChange={handleNewTodoInputChange} required=true />
       </form>
     </div>
     {Belt.Array.map(todos, todo => {
       <div key={Belt.Int.toString(todo.id)}>
-        <button onClick={evt => onRemove(evt, todo.id)}> {React.string("X")} </button>
+        <input
+          type_="checkbox" checked={todo.complete} onChange={evt => onToggleComplete(evt, todo.id)}
+        />
+        {React.string(todo.complete ? "true" : "false")}
         {React.string(" - ")}
         {React.string(todo.body)}
+        <button onClick={evt => onRemove(evt, todo.id)}> {React.string("X")} </button>
       </div>
     })->React.array}
   </div>
