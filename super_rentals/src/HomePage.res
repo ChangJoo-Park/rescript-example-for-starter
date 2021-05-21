@@ -1,6 +1,6 @@
 type location = {
   lat: float,
-  lng: float
+  lng: float,
 }
 
 type rental = {
@@ -18,6 +18,7 @@ type rental = {
 @react.component
 let make = () => {
   let (searchTerm, setSerchTerm) = React.useState(() => "")
+
   let (rentals, setRentals) = React.useState(() => [
     {
       title: "Grand Old Mansion",
@@ -32,41 +33,46 @@ let make = () => {
       bedrooms: 15,
       image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg",
       description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.",
-    }
+    },
   ])
 
   let (filtered, setFiltered) = React.useState(() => rentals)
 
-  let onSerchTermChange = (evt) => {
+  let onSerchTermChange = evt => {
     setSerchTerm(_ => ReactEvent.Form.target(evt)["value"])
+
     // let filteredRentals = filter((elm) => true, rentals)
+
     setFiltered(_ => [])
   }
 
   <>
     <div className="jumbo">
-      <div className="right tomster"></div>
-      <h2>{React.string("Welcome to Super Rentals!")}</h2>
-      <p>{React.string("We hope you find exactly what you're looking for in a place to stay.")}</p>
-      <Link href="/about" className="button">{React.string("About Us")}</Link>
+      <div className="right tomster" />
+      <h2> {React.string("Welcome to Super Rentals!")} </h2>
+      <p>
+        {React.string("We hope you find exactly what you're looking for in a place to stay.")}
+      </p>
+      <Link href="/about" className="button"> {React.string("About Us")} </Link>
     </div>
     <div className="rentals">
       <label>
-        <span>{React.string("Where would you like to stay?")}</span>
-        <input className="ember-text-field light" type_="text" onChange=onSerchTermChange></input>
+        <span> {React.string("Where would you like to stay?")} </span>
+        <input className="ember-text-field light" type_="text" onChange=onSerchTermChange />
       </label>
-
       <ul className="results">
-      {Belt.Array.map(filtered, rental => <Rental
-          key={rental.title}
-          title={rental.title}
-          owner={rental.owner}
-          city={rental.city}
-          category={rental.category}
-          roomType={rental.roomType}
-          bedrooms={rental.bedrooms}
-          image={rental.image}
-        ></Rental>)->React.array}
+        {Belt.Array.map(filtered, rental =>
+          <Rental
+            key={rental.title}
+            title={rental.title}
+            owner={rental.owner}
+            city={rental.city}
+            category={rental.category}
+            roomType={rental.roomType}
+            bedrooms={rental.bedrooms}
+            image={rental.image}
+          />
+        )->React.array}
       </ul>
     </div>
   </>

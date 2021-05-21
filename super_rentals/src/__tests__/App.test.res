@@ -1,4 +1,5 @@
 type assertions
+
 type result
 
 @module("@testing-library/react") external render: React.element => result = "render"
@@ -17,7 +18,10 @@ type result
 
 it("renders learn react link", () => {
   let _ = render(<App />)
+
   let actual = screen->getByText("Learn React")->getNodeText
+
   let expected = "Learn React"
+
   chaiAssert->equal(actual, expected)
 })

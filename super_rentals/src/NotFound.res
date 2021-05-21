@@ -1,6 +1,4 @@
 @react.component
 let make = () => {
-  <div>
-  {React.string("Not Found")}
-  </div>
+  <div> {React.string("Not Found")} </div>
 }
