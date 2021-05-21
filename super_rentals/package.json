@@ -3,7 +3,8 @@
     "start": "rescript build && snowpack dev",
     "build": "snowpack build",
     "test": "web-test-runner \"src/**/__tests__/*.bs.js\"",
-    "clean": "rescript clean"
+    "clean": "rescript clean",
+    "format": "rescript format -all"
   },
   "dependencies": {
     "@rescript/react": "^0.10.3",
