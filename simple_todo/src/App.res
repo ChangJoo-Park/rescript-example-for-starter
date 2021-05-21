@@ -33,7 +33,8 @@ let make = () => {
   let onToggleComplete = (evt, id) => {
     ReactEvent.Form.preventDefault(evt)
     let index = Js.Array.findIndex(elm => elm.id === id, todos)
-    setTodos(_ => [])
+    todos[index].complete = !todos[index].complete
+    setTodos(_ => todos)
   }
 
   let onRemove = (_, id) => setTodos(_prev => todos->Js.Array2.filter(elm => elm.id !== id))
