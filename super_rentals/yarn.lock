@@ -3036,6 +3036,18 @@ request@^2.88.2:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
+rescript-future@^1.1.0, rescript-future@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.1.tgz#2e795eb4aa1a96ab287fed25c168858cf5cf01d4"
+  integrity sha512-xdP3IDwS/PLTOfpQC28ehBCSv7ugajCbQM7d88c8CfTtfonHmYNdYt/RBTTE1kBgmy1alUzu8ylnsB+KXonMjQ==
+
+rescript-request@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-2.0.0.tgz#99948e586edc3e898059e0c00840b0884d1cc29a"
+  integrity sha512-gU62yyQvsome0YSwjB3u/EAii365emnVA0o2wtNS4NW1XOjY5aP7NjqdXziGU8kU5UeQNZXBnzj93TpgY+GaAw==
+  dependencies:
+    rescript-future "^1.1.0"
+
 rescript@^9.1.2:
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/rescript/-/rescript-9.1.2.tgz#a81f8a735f1a7006233bfc72eb081ca7182a0d79"

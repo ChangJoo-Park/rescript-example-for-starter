@@ -9,7 +9,9 @@
   "dependencies": {
     "@rescript/react": "^0.10.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "rescript-future": "^1.1.1",
+    "rescript-request": "^2.0.0"
   },
   "devDependencies": {
     "@jihchi/plugin-rescript": "^1.0.0",
