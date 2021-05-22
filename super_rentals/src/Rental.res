@@ -29,7 +29,7 @@ let make = (
       <img src=image /> <small> {React.string("View Larger")} </small>
     </button>
     <div className="details">
-      <h3> {React.string("Grand Old Mansion")} </h3>
+      <h3> {React.string(title)} </h3>
       <div />
       <div className="detail owner">
         <span> {React.string("Owner: ")} </span> {React.string(owner)}
