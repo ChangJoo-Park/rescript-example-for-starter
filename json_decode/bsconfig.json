@@ -1,0 +1,28 @@
+{
+  "name": "app-template-reason-react",
+  "reason": {
+    "react-jsx": 3
+  },
+  "bsc-flags": [
+    "-bs-super-errors"
+  ],
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": [
+    "rescript-test"
+  ],
+  "bs-dev-dependencies": [],
+  "ppx-flags": [],
+  "refmt": 3
+}
