@@ -1,14 +1,10 @@
 {
-  "name": "app-template-reason-react",
-  "reason": {
-    "react-jsx": 3
-  },
-  "bsc-flags": [
-    "-bs-super-errors"
-  ],
+  "name": "rescript-json-decode",
+  "bsc-flags": ["-bs-super-errors"],
   "sources": [
     {
-      "dir": "src"
+      "dir": "src",
+      "subdirs": true
     }
   ],
   "package-specs": [
@@ -19,10 +15,7 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": [
-    "rescript-test"
-  ],
-  "bs-dev-dependencies": [],
+  "bs-dependencies": [],
   "ppx-flags": [],
   "refmt": 3
 }
