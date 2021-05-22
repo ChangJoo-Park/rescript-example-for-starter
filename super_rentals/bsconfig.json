@@ -31,5 +31,6 @@
     "rescript-future"
   ],
   "bs-dev-dependencies": [],
-  "ppx-flags": []
+  "ppx-flags": [],
+  "refmt": 3
 }
