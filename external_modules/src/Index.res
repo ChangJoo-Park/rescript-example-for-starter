@@ -43,14 +43,20 @@ let apartment: Rental.rental = {
   description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet.",
 }
 
-let getCategoryMessage = (rental: Rental.rental) => {
+let getDynamicCategoryMessage = (rental: Rental.rental) => {
   switch rental {
-  | {category: Rental.Apartment} => "This Apartment"
+  | {category: Rental.Apartment} => "This is Apartment"
   | {category: Rental.Condo} => "This is Condo"
   | {category: Rental.Estate} => "This is Estate"
   }
 }
 
-let messageFromApartment = getCategoryMessage(apartment)
-let messageFromCondo = getCategoryMessage(condo)
-let messageFromEstate = getCategoryMessage(estate)
+let staticCategoryMessage = switch apartment {
+| {category: Rental.Apartment} => "This is Apartment"
+| {category: Rental.Condo} => "This is Condo"
+| {category: Rental.Estate} => "This is Estate"
+}
+
+let messageFromApartment = getDynamicCategoryMessage(apartment)
+let messageFromCondo = getDynamicCategoryMessage(condo)
+let messageFromEstate = getDynamicCategoryMessage(estate)
