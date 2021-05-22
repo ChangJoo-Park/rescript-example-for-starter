@@ -27,8 +27,8 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
-    "rescript-request",
-    "rescript-future"
+    "bs-fetch",
+    "@glennsl/bs-json"
   ],
   "bs-dev-dependencies": [],
   "ppx-flags": [],

@@ -220,6 +220,11 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@glennsl/bs-json@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@glennsl/bs-json/-/bs-json-5.0.2.tgz#cfb85d94d370ec6dc17849e0ddb1a51eee08cfcc"
+  integrity sha512-vVlHJNrhmwvhyea14YiV4L5pDLjqw1edE3GzvMxlbPPQZVhzgO3sTWrUxCpQd2gV+CkMfk4FHBYunx9nWtBoDg==
+
 "@jest/types@^26.6.2":
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-26.6.2.tgz#bef5a532030e1d88a2f5a6d933f84e97226ed48e"
@@ -1027,6 +1032,11 @@ browserslist@^4.14.5:
     electron-to-chromium "^1.3.723"
     escalade "^3.1.1"
     node-releases "^1.1.71"
+
+bs-fetch@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.6.2.tgz#37d982e9f79b9bc44c23e87ae78ccbee1f869adf"
+  integrity sha512-VXEjp8kY3vHPckaoy3d96Bx0KYjJAPLNISBwfpwMN26K6DtuZYwI2HKhx7zeHBajz1bRArfx7O8OOLcdtujMvg==
 
 buffer-crc32@~0.2.3:
   version "0.2.13"
@@ -3035,18 +3045,6 @@ request@^2.88.2:
     tough-cookie "~2.5.0"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
-
-rescript-future@^1.1.0, rescript-future@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.1.tgz#2e795eb4aa1a96ab287fed25c168858cf5cf01d4"
-  integrity sha512-xdP3IDwS/PLTOfpQC28ehBCSv7ugajCbQM7d88c8CfTtfonHmYNdYt/RBTTE1kBgmy1alUzu8ylnsB+KXonMjQ==
-
-rescript-request@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-2.0.0.tgz#99948e586edc3e898059e0c00840b0884d1cc29a"
-  integrity sha512-gU62yyQvsome0YSwjB3u/EAii365emnVA0o2wtNS4NW1XOjY5aP7NjqdXziGU8kU5UeQNZXBnzj93TpgY+GaAw==
-  dependencies:
-    rescript-future "^1.1.0"
 
 rescript@^9.1.2:
   version "9.1.2"

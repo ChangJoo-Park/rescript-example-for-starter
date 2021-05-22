@@ -16,6 +16,8 @@ type rental = {
 }
 
 let useRentals = () => {
+  let baseURL = "/rentals.json"
+
   let (rentals, setRentals) = React.useState(() => [
     {
       title: "Grand Old Mansion",
@@ -34,6 +36,16 @@ let useRentals = () => {
   ])
 
   let getRentals = () => {
+    // let parse = (json) => {
+    //   let decoded = Js.Json.decodeObject(json)
+    //   Js.Json.decodeObject(json)
+    // }
+    // let _ =
+    //   Fetch.fetch(baseURL)
+    //   /* assume server returns `{ data: [] }` */
+    //   ->Js.Promise.then_(Fetch.Response.json, _)
+    //   ->Js.Promise.then_(json => parse(json) -> Js.Promise.resolve, _)
+    //   // ->Js.Promise.then_(json => parse(json) -> Js.Promise.resolve, _)
     setRentals(_ => [])
   }
 
@@ -46,9 +58,25 @@ let useRentals = () => {
 
   (rentals, getRentals, filterRentals)
 }
+
+let outsideFunction = () => {
+  let parse = (json) => {
+    Js.log("parse")
+    let dict = Js.Dict.empty()
+    let length = Js.Array.length(json)
+    Js.log("EEEE")
+  }
+
+  let _ =
+    Fetch.fetch("/rentals.json")
+    ->Js.Promise.then_(Fetch.Response.json, _)
+    ->Js.Promise.then_(json => parse(json) -> Js.Promise.resolve, _)
+}
+
 @react.component
 let make = () => {
-  let (rentals, _, filterRentals) = useRentals()
+  outsideFunction()
+  let (rentals, getRentals, filterRentals) = useRentals()
   let (filtered, setFiltered) = React.useState(() => rentals)
 
   let onSerchTermChange = evt => {
@@ -73,6 +101,10 @@ let make = () => {
     )->React.array
   }
 
+  let onClick = (evt) => {
+    getRentals()
+  }
+
   <>
     <div className="jumbo">
       <div className="right tomster" />
@@ -82,12 +114,17 @@ let make = () => {
       </p>
       <Link href="/about" className="button"> {React.string("About Us")} </Link>
     </div>
-    <div className="rentals">
-      <label>
-        <span> {React.string("Where would you like to stay?")} </span>
-        <input className="ember-text-field light" type_="text" onChange=onSerchTermChange />
-      </label>
-      <ul className="results"> {renderRentals} </ul>
+    <div>
+      <button onClick>{React.string("테스트용")}</button>
     </div>
+    <RentalProvider>
+      <div className="rentals">
+        <label>
+          <span> {React.string("Where would you like to stay?")} </span>
+          <input className="ember-text-field light" type_="text" onChange=onSerchTermChange />
+        </label>
+        <ul className="results"> {renderRentals} </ul>
+      </div>
+    </RentalProvider>
   </>
 }

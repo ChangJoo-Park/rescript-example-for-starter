@@ -7,11 +7,11 @@
     "format": "rescript format -all"
   },
   "dependencies": {
+    "@glennsl/bs-json": "^5.0.2",
     "@rescript/react": "^0.10.3",
+    "bs-fetch": "^0.6.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rescript-future": "^1.1.1",
-    "rescript-request": "^2.0.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@jihchi/plugin-rescript": "^1.0.0",
