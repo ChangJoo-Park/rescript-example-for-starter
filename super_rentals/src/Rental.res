@@ -8,7 +8,6 @@ let make = (
   ~title: string,
   ~owner: string,
   ~city: string,
-  ~category: string,
   ~roomType: string,
   ~bedrooms: int,
   ~image: string,
