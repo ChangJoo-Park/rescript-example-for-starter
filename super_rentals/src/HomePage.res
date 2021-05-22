@@ -15,10 +15,7 @@ type rental = {
   description: string,
 }
 
-@react.component
-let make = () => {
-  let (searchTerm, setSerchTerm) = React.useState(() => "")
-
+let useRentals = () => {
   let (rentals, setRentals) = React.useState(() => [
     {
       title: "Grand Old Mansion",
@@ -36,14 +33,44 @@ let make = () => {
     },
   ])
 
+  let getRentals = () => {
+    setRentals(_ => [])
+  }
+
+  let filterRentals = term => {
+    let toLowerCase = Js.String.toLowerCase
+    let filter = Js.Array.filter
+    let includes = Js.String.includes
+    filter(rental => includes(toLowerCase(term), toLowerCase(rental.title)), rentals)
+  }
+
+  (rentals, getRentals, filterRentals)
+}
+@react.component
+let make = () => {
+  let (rentals, _, filterRentals) = useRentals()
   let (filtered, setFiltered) = React.useState(() => rentals)
 
   let onSerchTermChange = evt => {
-    setSerchTerm(_ => ReactEvent.Form.target(evt)["value"])
+    let term = ReactEvent.Form.target(evt)["value"]
+    switch term {
+    | "" => setFiltered(_ => rentals)
+    | _ => setFiltered(_ => filterRentals(term))
+    }
+  }
 
-    // let filteredRentals = filter((elm) => true, rentals)
-
-    setFiltered(_ => [])
+  let renderRentals = {
+    Belt.Array.map(filtered, rental =>
+      <Rental
+        key={rental.title}
+        title={rental.title}
+        owner={rental.owner}
+        city={rental.city}
+        roomType={rental.roomType}
+        bedrooms={rental.bedrooms}
+        image={rental.image}
+      />
+    )->React.array
   }
 
   <>
@@ -60,20 +87,7 @@ let make = () => {
         <span> {React.string("Where would you like to stay?")} </span>
         <input className="ember-text-field light" type_="text" onChange=onSerchTermChange />
       </label>
-      <ul className="results">
-        {Belt.Array.map(filtered, rental =>
-          <Rental
-            key={rental.title}
-            title={rental.title}
-            owner={rental.owner}
-            city={rental.city}
-            category={rental.category}
-            roomType={rental.roomType}
-            bedrooms={rental.bedrooms}
-            image={rental.image}
-          />
-        )->React.array}
-      </ul>
+      <ul className="results"> {renderRentals} </ul>
     </div>
   </>
 }
