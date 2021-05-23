@@ -1,38 +1,9 @@
-# New Project
+# Simple Todo
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+Rescript + React 로 만든 간단한 투두 앱입니다.
 
-> Using `npm`
+데이터베이스 없이 React의 useState를 이용하여 상태관리를 합니다.
 
-```sh
-npx create-snowpack-app new-dir --template app-template-reason-react
-```
-
-> Using `yarn`
-
-```sh
-npx create-snowpack-app new-dir --template app-template-reason-react --use-yarn
-```
-
-## Available Scripts
-
-### npm start
-
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
-
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
-
+- 새 항목을 추가할 수 있습니다.
+- 항목의 완료 여부를 토글할 수 있습니다.
+- 항목을 삭제할 수 있습니다.
