@@ -2,7 +2,7 @@ type todo = {
   userId: int,
   id: int,
   title: string,
-  completed: boolean,
+  completed: bool,
 }
 
 @scope("JSON") @val
