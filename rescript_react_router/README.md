@@ -1,38 +1,46 @@
-# New Project
+# Rescript React Router
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+`@rescript/react` 라이브러리에는 라우터가 포함되어 있습니다.
+`RescriptReactRouter` 를 이용해 현재 URL의 path, hash, search 속성에 접근할 수 있습니다.
 
-> Using `npm`
+https://rescript-lang.org/docs/react/latest/router
 
-```sh
-npx create-snowpack-app new-dir --template app-template-reason-react
+
+```jsx
+@react.component
+let make = () => {
+  let url = RescriptReactRouter.useUrl()
+
+  <div className="container">
+    <div className="body">
+      {switch url.path {
+      | list{"about"} => <AboutPage />
+      | list{"users"} => <UsersPage />
+      | list{"users", userId} => <UserDetailPage userId=userId />
+      | list{} => <HomePage />
+      | _ => <NotFoundPage />
+      }}
+    </div>
+  </div>
+}
 ```
 
-> Using `yarn`
+각 페이지에서 다른 페이지 또는 라우트로 이동할 때 `<a></a>` 태그를 사용하면 해당 라우트로 이동은 하지만 모든 에셋을 새로 가져옵니다.
 
-```sh
-npx create-snowpack-app new-dir --template app-template-reason-react --use-yarn
+RescriptReactRouter 기능을 이용해 라우트를 변경하려면 아래 `<Link>` 컴포넌트를 사용해야합니다.
+
+```jsx
+// Link.res
+let handleClick = (href, event) =>
+  if !ReactEvent.Mouse.defaultPrevented(event) {
+    ReactEvent.Mouse.preventDefault(event)
+
+    RescriptReactRouter.push(href)
+  }
+
+@react.component
+let make = (~href, ~className="", ~children) =>
+  <a href className onClick={event => handleClick(href, event)}> children </a>
 ```
 
-## Available Scripts
-
-### npm start
-
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
-
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
-
+Link 컴포넌트는 a 태그와 사용법이 같으나 클릭을 하면 `RescriptReactRouter.push` 를 이용해 라우트를 변경합니다.
