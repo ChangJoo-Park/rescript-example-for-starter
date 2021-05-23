@@ -10,7 +10,7 @@ let make = () => {
       <Link href="/users">{s("Go user listing")}</Link>
     </div>
     <div>
-      <Link href=`/somewhere/${randomNumberForNotFound}`>{s("Meet Not Found")}</Link>
+      <Link href=`/somewhere/${randomNumberForNotFound}`>{s("Go to not found")}</Link>
     </div>
   </div>
 }
