@@ -1,10 +1,16 @@
 {
+  "type": "module",
   "scripts": {
+    "run": "node ./src/App.bs.js",
     "start": "rescript build -w",
     "build": "rescript build",
     "clean": "rescript clean"
   },
   "devDependencies": {
     "rescript": "^9.1.2"
+  },
+  "dependencies": {
+    "@glennsl/bs-json": "^5.0.2",
+    "bs-fetch": "^0.6.2"
   }
 }
