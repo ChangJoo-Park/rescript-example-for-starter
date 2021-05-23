@@ -4,6 +4,13 @@ module.exports = {
     public: { url: '/', static: true },
     src: { url: '/dist' },
   },
+  routes: [
+    {
+      match: 'routes',
+      src: '.*',
+      dest: '/index.html',
+    },
+  ],
   exclude: ["**/*.{res,resi}"],
   plugins: [
     '@snowpack/plugin-react-refresh',
