@@ -2,41 +2,29 @@
 
 %%raw(`import './App.css';`)
 
-type todo = {id: int, body: string, mutable complete: bool}
+type todo = {id: int, body: string, complete: bool}
 
 @react.component
 let make = () => {
   let (newTodoInput, setNewTodoInput) = React.useState(_ => "")
-
   let (todos, setTodos) = React.useState(_ => [
     {id: Js.Math.random_int(0, 999), body: "Todo 1", complete: false},
     {id: Js.Math.random_int(0, 999), body: "Todo 2", complete: true},
     {id: Js.Math.random_int(0, 999), body: "Todo 3", complete: false},
   ])
-
   let handleNewTodoInputChange = evt => setNewTodoInput(_ => ReactEvent.Form.target(evt)["value"])
-
   let onSubmit = evt => {
     ReactEvent.Form.preventDefault(evt)
-
-    let newTodo = {
-      id: Js.Math.random_int(0, 999),
-      body: newTodoInput,
-      complete: false,
-    }
-
-    let newTodoList = Js.Array2.concat(todos, [newTodo])
-    setTodos(_ => newTodoList)
+    let newTodo = { id: Js.Math.random_int(0, 999), body: newTodoInput, complete: false }
+    setTodos(_ => Js.Array2.concat(todos, [newTodo]))
     setNewTodoInput(_ => "")
   }
-
-  let onToggleComplete = (evt, id) => {
-    ReactEvent.Form.preventDefault(evt)
-    let index = Js.Array.findIndex(elm => elm.id === id, todos)
-    todos[index].complete = !todos[index].complete
-    setTodos(_ => todos)
-  }
-
+  // If statement를 switch로 바꿀 수 있는 방법은 있는지?
+  let toggledTodosById = (id, todos) => Js.Array.map(todo => {
+    if (todo.id === id) {{...todo, complete: !todo.complete}}
+    else {todo}
+  } , todos)
+  let onToggleComplete = (_, id: int, todos) => setTodos(_ => toggledTodosById(id, todos))
   let onRemove = (_, id) => setTodos(_prev => todos->Js.Array2.filter(elm => elm.id !== id))
 
   <div>
@@ -49,7 +37,7 @@ let make = () => {
     {Belt.Array.map(todos, todo => {
       <div key={Belt.Int.toString(todo.id)}>
         <input
-          type_="checkbox" checked={todo.complete} onChange={evt => onToggleComplete(evt, todo.id)}
+          type_="checkbox" checked=todo.complete onChange={evt => onToggleComplete(evt, todo.id, todos)}
         />
         {React.string(todo.complete ? "true" : "false")}
         {React.string(" - ")}
