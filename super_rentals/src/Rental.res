@@ -8,7 +8,7 @@ let make = (
   ~title: string,
   ~owner: string,
   ~city: string,
-  ~roomType: string,
+  ~category: string,
   ~bedrooms: int,
   ~image: string,
 ) => {
@@ -35,7 +35,7 @@ let make = (
         <span> {React.string("Owner: ")} </span> {React.string(owner)}
       </div>
       <div className="detail type">
-        <span> {React.string("Type: ")} </span> {React.string(roomType)}
+        <span> {React.string("Type: ")} </span> {React.string(category)}
       </div>
       <div className="detail location">
         <span> {React.string("Location: ")} </span> {React.string(city)}
