@@ -22,8 +22,8 @@
 
 ## 템플릿
 
-1.[template_for_rescript](/template_for_rescript) : rescript만 이용하면 되는 프로젝트를 위한 템플릿입니다.
-1.[template_for_react]](/template_for_react) : rescript + react 를 이용하는 경우에 사용하는 템플릿입니다.
+1. [template_for_rescript](/template_for_rescript) : rescript만 이용하면 되는 프로젝트를 위한 템플릿입니다.
+1. [template_for_react](/template_for_react) : rescript + react 를 이용하는 경우에 사용하는 템플릿입니다.
 
 ## 안내
 
