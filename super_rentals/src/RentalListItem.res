@@ -1,10 +1,17 @@
-type location = {
-  lat: float,
-  lng: float,
+type rental = {
+  id: string,
+  title: string,
+  owner: string,
+  city: string,
+  category: string,
+  bedrooms: int,
+  image: string,
+  description: string,
 }
 
 @react.component
 let make = (
+  ~id: string,
   ~title: string,
   ~owner: string,
   ~city: string,
@@ -12,24 +19,11 @@ let make = (
   ~bedrooms: int,
   ~image: string,
 ) => {
-  let (imageClass, setImageClass) = React.useState(() => "")
-
-  let onClick = _ => {
-    switch imageClass {
-    | "" => setImageClass(_ => "large")
-
-    | "large" => setImageClass(_ => "")
-
-    | _ => setImageClass(_ => "")
-    }
-  }
 
   <article className="rental">
-    <button className={`image ${imageClass}`} type_="button" onClick>
-      <img src=image /> <small> {React.string("View Larger")} </small>
-    </button>
+    <RentalImage image=image></RentalImage>
     <div className="details">
-      <h3> {React.string(title)} </h3>
+      <h3> <Link href={`/rentals/${id}`}> {React.string(title)} </Link> </h3>
       <div />
       <div className="detail owner">
         <span> {React.string("Owner: ")} </span> {React.string(owner)}
