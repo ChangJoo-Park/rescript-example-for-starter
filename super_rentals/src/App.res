@@ -7,9 +7,8 @@ let make = () => {
     <div className="body">
       {switch url.path {
       | list{"about"} => <AboutPage />
-
-      | list{"contact"} => <ContactPage />
-
+      | list{"getting-in-touch"} => <ContactPage />
+      | list{"rentals", id} =>  <RentalDetailPage id=id />
       | list{} => <HomePage />
 
       | _ => <NotFound />
