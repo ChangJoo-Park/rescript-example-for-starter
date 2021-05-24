@@ -48,3 +48,13 @@ npx rescript convert <파일경로>
 ## rescript-vscode
 
 이 프로젝트의 개발은 vscode를 이용하고 있습니다. 개발을 시작하기 전에 [rescript-vscode](https://marketplace.visualstudio.com/items?itemName=chenglou92.rescript-vscode) 를 설치하고 사용해주세요.
+
+
+
+## TODO
+
+여유가 되면 추가해볼 내용입니다.
+
+- [ ] rescript + react + electron
+- [ ] rescript + next.js
+- [ ] rescript + blitz.js
