@@ -12,6 +12,7 @@ let make = () => {
         {React.string("we can simultaneously imagine traveling AND building Ember applications.")}
         <br />
       </p>
+      <Link href="/getting-in-touch" className="button"> {React.string("Contact Us")} </Link>
     </div>
   </>
 }

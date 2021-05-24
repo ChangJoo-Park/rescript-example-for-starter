@@ -18,5 +18,7 @@ let make = () => {
         {React.string("superrentalsrep@emberjs.com")}
       </a>
     </address>
+
+    <Link href="/about" className="button">{React.string("About")}</Link>
   </div>
 }
