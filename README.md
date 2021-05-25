@@ -20,8 +20,7 @@
 1. [json_decode](/json_decode) : JSON 응답을 rescript 의 type을 가진 let-binding으로 변환하는 예제입니다.
 1. [external_modules](/external_modules) : rescript의 외부 모듈 테스트 예제입니다.
 1. [super_rentals](/super_rentals) : rescript + react 를 이용한 간단한 웹서비스입니다.
-
-
+1. [access_js_module](/access_js_module) : 자바스크립트 ES6 모듈과 npm 으로 설치한 lodash를 rescript에서 가져와 사용하는 예제입니다.
 ## 템플릿
 
 1. [template_for_rescript](/template_for_rescript) : rescript만 이용하면 되는 프로젝트를 위한 템플릿입니다.
