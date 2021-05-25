@@ -19,7 +19,7 @@
 1. [data_fetch](/data_fetch) : bs-fetch와 bs-json을 이용한 Remote API 요청 예제입니다.
 1. [json_decode](/json_decode) : JSON 응답을 rescript 의 type을 가진 let-binding으로 변환하는 예제입니다.
 1. [external_modules](/external_modules) : rescript의 외부 모듈 테스트 예제입니다.
-1. [super_rentals](/super_renatals) : rescript + react 를 이용한 간단한 웹서비스입니다.
+1. [super_rentals](/super_rentals) : rescript + react 를 이용한 간단한 웹서비스입니다.
 
 
 ## 템플릿
