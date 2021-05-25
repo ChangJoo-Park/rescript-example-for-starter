@@ -27,7 +27,10 @@ let make = () => {
         todo
       }
     }, todos)
-  let onToggleComplete = (_, id: int, todos) => setTodos(_ => toggledTodosById(id, todos))
+  let onToggleComplete = (evt, id: int, todos) => {
+    ReactEvent.Form.preventDefault(evt)
+    setTodos(_ => toggledTodosById(id, todos))
+  }
   let onRemove = (_, id) => setTodos(_prev => todos->Js.Array2.filter(elm => elm.id !== id))
 
   <div>
@@ -37,6 +40,19 @@ let make = () => {
         <input value={newTodoInput} onChange={handleNewTodoInputChange} required=true />
       </form>
     </div>
+    // {Belt.Array.map(todos, todo => {
+    //   <div key={Belt.Int.toString(todo.id)}>
+    //     <input
+    //       type_="checkbox"
+    //       checked=todo.complete
+    //       onChange={evt => onToggleComplete(evt, todo.id, todos)}
+    //     />
+    //     {React.string(todo.complete ? "true" : "false")}
+    //     {React.string(" - ")}
+    //     {React.string(todo.body)}
+    //     <button onClick={evt => onRemove(evt, todo.id)}> {React.string("X")} </button>
+    //   </div>
+    // })->React.array}
     {Belt.Array.map(todos, todo => {
       <div key={Belt.Int.toString(todo.id)}>
         <input

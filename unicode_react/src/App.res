@@ -8,5 +8,8 @@ let make = () => {
     <div>{React.string(`헬로 월드!`)}</div>
     <div>{React.string(`おはようございます`)}</div>
     <div>{React.string(`你好`)}</div>
+    <div>{React.string("헬로 월드!")}</div>
+    <div>{React.string("おはようございます")}</div>
+    <div>{React.string("你好")}</div>
   </div>
 }

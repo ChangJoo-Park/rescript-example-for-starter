@@ -13,6 +13,12 @@
         {
           "dir": "__tests__",
           "type": "dev"
+        },
+        {
+          "dir": "pages"
+        },
+        {
+          "dir": "components"
         }
       ]
     }
