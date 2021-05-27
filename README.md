@@ -25,7 +25,7 @@
 
 1. [template_for_rescript](/template_for_rescript) : rescript만 이용하면 되는 프로젝트를 위한 템플릿입니다.
 1. [template_for_react](/template_for_react) : rescript + react 를 이용하는 경우에 사용하는 템플릿입니다.
-
+1. [template_for_react_scripts](/template_for_react_scripts) : rescript + react, react script 를 번들러로 사용하는 템플릿 입니다.
 ## 안내
 
 공식 문서는 [이 곳](https://rescript-lang.org/) 입니다.
