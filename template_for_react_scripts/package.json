@@ -1,0 +1,34 @@
+{
+  "name": "template-rescript-react",
+  "scripts": {
+    "re:watch": "rescript build -w",
+    "re:build": "rescript build",
+    "re:clean": "rescript clean",
+    "r:start": "react-scripts start",
+    "r:build": "react-scripts build",
+    "build": "npm run re:build && npm run r:build"
+  },
+  "dependencies": {
+    "@glennsl/bs-json": "^5.0.2",
+    "bs-fetch": "^0.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.10.3",
+    "rescript": "^9.1.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
