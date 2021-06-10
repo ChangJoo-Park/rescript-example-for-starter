@@ -5,6 +5,6 @@
     "start": "rescript build -w"
   },
   "devDependencies": {
-    "rescript": "^9.1.2"
+    "rescript": "^9.1.3"
   }
 }

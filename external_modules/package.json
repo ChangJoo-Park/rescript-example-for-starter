@@ -6,6 +6,6 @@
     "format": "rescript format"
   },
   "devDependencies": {
-    "rescript": "^9.1.2"
+    "rescript": "^9.1.3"
   }
 }
